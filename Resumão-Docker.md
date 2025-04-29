@@ -68,7 +68,7 @@ Passos principais:
 
 ---
 
-# 📋 Principais Comandos Docker
+## 📋 Principais Comandos Docker
 
 ## 📦 Comandos Básicos
 - Listar imagens:
@@ -155,6 +155,28 @@ Passos principais:
   ```bash
   docker system prune
   ```
+
+## ⚙️ Docker + Maven (build de projeto Java)
+- Build do projeto com Maven sem rodar os testes:
+  ```bash
+  mvn clean package -DskipTests
+  ```
+- Build de imagem Docker a partir de subpastas:
+  ```bash
+  docker build -t email ./email
+  docker build -t user ./user
+  docker build -t eureka_server ./eureka_server
+  docker build -t api-gateway ./api-gateway
+  ```
+
+## 🐬 Subir container de banco de dados MySQL para testes:
+```bash
+docker run -d \
+  --name mysql-container \
+  -e MYSQL_ROOT_PASSWORD=123456 \
+  -p 3307:3306 \
+  mysql:latest
+```
 
 ---
 
